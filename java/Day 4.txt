@@ -1,0 +1,122 @@
+Day 4:
+
+﻿
+
+Create a Java package named geometry that contains classes representing
+geometric shapes such as Circle,
+Rectangle, and Triangle. Each shape class should have methods to calculate its area and perimeter. Then, create a class named GeometryPackage Demo outside of the package to demonstrate the usage of these classes. In the demo class, create instances of each shape, calculate their area and perimeter, and print the results.
+
+
+Create the package geometry:
+
+
+geometry/
+    Circle.java
+    Rectangle.java
+    Triangle.java
+GeometryPackageDemo.java
+
+
+
+Create the shape classes: Circle, Rectangle, and Triangle:
+
+
+package geometry;
+
+public class Circle {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public double getArea() {
+        return Math.PI * radius * radius;
+    }
+
+    public double getPerimeter() {
+        return 2 * Math.PI * radius;
+    }
+}
+
+
+package geometry;
+
+public class Rectangle {
+    private double length;
+    private double width;
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    public double getArea() {
+        return length * width;
+    }
+
+    public double getPerimeter() {
+        return 2 * (length + width);
+    }
+}
+
+
+package geometry;
+
+public class Triangle {
+    private double side1;
+    private double side2;
+    private double side3;
+
+    public Triangle(double side1, double side2, double side3) {
+        this.side1 = side1;
+        this.side2 = side2;
+        this.side3 = side3;
+    }
+
+    public double getArea() {
+        double s = (side1 + side2 + side3) / 2;
+        return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+    }
+
+    public double getPerimeter() {
+        return side1 + side2 + side3;
+    }
+}
+
+
+Create the demo class GeometryPackageDemo:
+
+
+import geometry.Circle;
+import geometry.Rectangle;
+import geometry.Triangle;
+
+public class GeometryPackageDemo {
+    public static void main(String[] args) {
+        
+        Circle circle = new Circle(5.0);
+        Rectangle rectangle = new Rectangle(4.0, 6.0);
+        Triangle triangle = new Triangle(3.0, 4.0, 5.0);
+
+      
+        System.out.println("Circle:");
+        System.out.println("Radius: 5.0");
+        System.out.println("Area: " + circle.getArea());
+        System.out.println("Perimeter: " + circle.getPerimeter());
+        System.out.println();
+
+     
+        System.out.println("Rectangle:");
+        System.out.println("Length: 4.0, Width: 6.0");
+        System.out.println("Area: " + rectangle.getArea());
+        System.out.println("Perimeter: " + rectangle.getPerimeter());
+        System.out.println();
+
+
+        System.out.println("Triangle:");
+        System.out.println("Sides: 3.0, 4.0, 5.0");
+        System.out.println("Area: " + triangle.getArea());
+        System.out.println("Perimeter: " + triangle.getPerimeter());
+    }
+}
